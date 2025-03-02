@@ -40,8 +40,8 @@ def train_step(data_loader: torch.utils.data.DataLoader, model: Transformer, opt
         optimizer.step()
 
         if batch % 1 == 0:
-            print("\033[K", end="\r")
-            print(f"=== Train Batch {batch+1} / {len(data_loader)} ===", end="\r")
+            print(f"\033[K=== Train Batch {batch+1} / {len(data_loader)} ({(batch+1)/len(data_loader)*100:.2f}%) ===", end="\r")
+            #print(f"=== Train Batch {batch+1} / {len(data_loader)} ===", end="\r")
 
     avg_loss = running_loss / len(data_loader)
     return avg_loss
